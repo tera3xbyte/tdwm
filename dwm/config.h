@@ -42,11 +42,11 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "TILE",      tile },    /* first entry is default */
-	{ "FLOAT",      NULL },    /* no layout function means floating behavior */
-	{ "MONO",      monocle },
-	{ "[@]",      spiral },
- 	{ "[\\]",      dwindle },
+	{ "TLE",      tile },    /* first entry is default */
+	{ "FLT",      NULL },    /* no layout function means floating behavior */
+	{ "MON",      monocle },
+	{ "FBN",      spiral },
+ 	{ "BNR",      dwindle },
 
 };
 
@@ -110,12 +110,12 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
-	{ MODKEY|ShiftMask,             XK_m,      quit,           {0} },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_m,         quit,           {0} },
+	{ MODKEY,                       XK_v,      setgaps,        {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_v,      setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-  { MODKEY|ShiftMask,             XK_v,    spawn,        SHCMD("pamixer --allow-boost -d 5 && notifyvol") },
-  { MODKEY,                       XK_v,    spawn,        SHCMD("pamixer --allow-boost -i 5 && notifyvol") },
+  { MODKEY,                       XK_minus,    spawn,        SHCMD("pamixer --allow-boost -d 5 && notifyvol") },
+  { MODKEY,                       XK_equal,    spawn,        SHCMD("pamixer --allow-boost -i 5 && notifyvol") },
   { MODKEY,                       XK_r,        spawn,        SHCMD("dunstctl context") },
   { MODKEY|ShiftMask,             XK_s,        spawn,        SHCMD("scrot --select -z -b -e 'ss2 $f'") },
   { MODKEY|ShiftMask,             XK_s,        spawn,        SHCMD("scrot --select -z -b -e 'ss2 $f'") },
