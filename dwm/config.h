@@ -1,7 +1,7 @@
 /*   See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -10,8 +10,9 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "BlexMono NF:size=13" };
+static const int topbar             = 1;        /* 0 means bottom bar */
+static const int user_bh            = 5;
+static const char *fonts[]          = { "BlexMono NF:size=13:style=italic" };
 static const char dmenufont[]       = "BlexMono NF:size=13";
 static const char col_gray1[]       = "#1d2021";
 static const char col_gray2[]       = "#ebdbb2";
@@ -25,7 +26,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", /*"6", "7", "8", "9"*/ };
+//static const char *tags[] = { "", "", "", "", "", /*"6", "7", "8", "9"*/ };
+static const char *tags[] = { "I", "II", "III", "IV", "V", /*"6", "7", "8", "9"*/ };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -40,10 +42,10 @@ static const Rule rules[] = {
 #include "fibonacci.c"
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.25; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -72,7 +74,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 // dmenu_r
 // un -X 275 -Y 150 -W 860 -h 40 -l 10 -g 3 -bw 15 -fn "BlexMono NF:style=italic"
 static const char *dmenucmd[] = { "dmenu_run", 
-  "-X", "450", 
+/*  "-X", "450", 
   "-Y", "200",
   "-W", "500",
   "-h", "40",
@@ -80,6 +82,7 @@ static const char *dmenucmd[] = { "dmenu_run",
   "-g", "2",
   "-bw", "15",
   "-fn", "BlexMono NF:style=italic",
+*/
   NULL };
 static const char *termcmd[]  = { "xterm", NULL };
 
