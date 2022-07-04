@@ -31,7 +31,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      	     instance    title    tags mask     isfloating   CenterThisWindow?     monitor */
-	{ "st",              NULL,       NULL,    0,            0,     	     1,		           -1 },
+	{ "Xterm",              NULL,       NULL,    0,            0,     	     1,		           -1 },
+	{ "Chromium",              NULL,       NULL,    0,            0,     	     1,		           -1 },
+	{ "Pcmanfm",              NULL,       NULL,    0,            0,     	     1,		           -1 },
 	{ "Gimp",            NULL,       NULL,    0,            1,           0,                    -1 },
 	{ "Firefox",         NULL,       NULL,    1 << 8,       0,           0,                    -1 },
 };
@@ -108,14 +110,13 @@ static Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	{ MODKEY|ShiftMask,             XK_m,      quit,           {0} },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY|ShiftMask,             XK_n,  setgaps,        {.i = 0  } },
   { MODKEY|ShiftMask,             XK_minus,    spawn,        SHCMD("pamixer --allow-boost -d 5 && notifyvol") },
   { MODKEY|ShiftMask,             XK_equal,    spawn,        SHCMD("pamixer --allow-boost -i 5 && notifyvol") },
+  { MODKEY,                       XK_v,        setgaps,        {.i = -1} },
+  { MODKEY|ShiftMask,             XK_v,        setgaps,        {.i = +1} },
   { MODKEY,                       XK_r,        spawn,        SHCMD("dunstctl context") },
-  { MODKEY|ShiftMask,             XK_s,        spawn,        SHCMD("scrot --select -z -b -e 'ss2 $f'") },
-  { MODKEY|ShiftMask,             XK_s,        spawn,        SHCMD("scrot --select -z -b -e 'ss2 $f'") },
+  { MODKEY|ShiftMask,             XK_s,        spawn,        SHCMD("scrot --select -z -b -e 'macstyle.sh $f'") },
   { MODKEY|ShiftMask,             XK_p,        spawn,        SHCMD("dmenu-power.sh") },
 };
 
