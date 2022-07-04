@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar             = 0;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const int user_bh            = 6;
@@ -31,9 +31,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      	     instance    title    tags mask     isfloating   CenterThisWindow?     monitor */
-	{ "Xterm",              NULL,       NULL,    0,            0,     	     1,		           -1 },
-	{ "Chromium",              NULL,       NULL,    0,            0,     	     1,		           -1 },
-	{ "Pcmanfm",              NULL,       NULL,    0,            0,     	     1,		           -1 },
+	{ "XTerm",           NULL,       NULL,    0,            0,     	     1,		           -1 },
+	{ "Chromium",        NULL,       NULL,    0,            0,     	     1,		           -1 },
+	{ "Pcmanfm",         NULL,       NULL,    0,            0,     	     1,		           -1 },
 	{ "Gimp",            NULL,       NULL,    0,            1,           0,                    -1 },
 	{ "Firefox",         NULL,       NULL,    1 << 8,       0,           0,                    -1 },
 };
