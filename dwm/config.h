@@ -111,8 +111,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_5,                      4)
 	{ MODKEY|ShiftMask,             XK_m,      quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_n,  setgaps,        {.i = 0  } },
-  { MODKEY|ShiftMask,             XK_minus,    spawn,        SHCMD("pamixer --allow-boost -d 5 && notifyvol") },
-  { MODKEY|ShiftMask,             XK_equal,    spawn,        SHCMD("pamixer --allow-boost -i 5 && notifyvol") },
+  { MODKEY,                       XK_minus,    spawn,        SHCMD("pamixer --allow-boost -d 5 && notifyvol") },
+  { MODKEY,                       XK_equal,    spawn,        SHCMD("pamixer --allow-boost -i 5 && notifyvol") },
   { MODKEY,                       XK_v,        setgaps,        {.i = -1} },
   { MODKEY|ShiftMask,             XK_v,        setgaps,        {.i = +1} },
   { MODKEY,                       XK_r,        spawn,        SHCMD("dunstctl context") },
