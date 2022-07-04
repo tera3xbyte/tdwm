@@ -92,8 +92,8 @@ struct Client {
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
 	int bw, oldbw;
 	unsigned int tags;
-	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
-	Client *next;
+	int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
+  Client *next;
 	Client *snext;
 	Monitor *mon;
 	Window win;
@@ -139,7 +139,8 @@ typedef struct {
 	const char *title;
 	unsigned int tags;
 	int isfloating;
-	int monitor;
+	int iscentered; 
+  int monitor;
 } Rule;
 
 /* function declarations */
@@ -290,8 +291,9 @@ applyrules(Client *c)
 	XClassHint ch = { NULL, NULL };
 
 	/* rule matching */
+  c->iscentered = 0;
 	c->isfloating = 0;
-	c->tags = 0;
+  c->tags = 0;
 	XGetClassHint(dpy, c->win, &ch);
 	class    = ch.res_class ? ch.res_class : broken;
 	instance = ch.res_name  ? ch.res_name  : broken;
@@ -302,7 +304,8 @@ applyrules(Client *c)
 		&& (!r->class || strstr(class, r->class))
 		&& (!r->instance || strstr(instance, r->instance)))
 		{
-			c->isfloating = r->isfloating;
+			c->iscentered = r->iscentered;
+      c->isfloating = r->isfloating;
 			c->tags |= r->tags;
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
@@ -1068,7 +1071,11 @@ manage(Window w, XWindowAttributes *wa)
 	updatewindowtype(c);
 	updatesizehints(c);
 	updatewmhints(c);
-	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
+	if (c->iscentered) {
+		c->x = c->mon->mx + (c->mon->mw - WIDTH(c)) / 2;
+		c->y = c->mon->my + (c->mon->mh - HEIGHT(c)) / 2;
+	}
+  XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
 	grabbuttons(c, 0);
 	if (!c->isfloating)
 		c->isfloating = c->oldstate = trans != None || c->isfixed;
@@ -2046,8 +2053,10 @@ updatewindowtype(Client *c)
 
 	if (state == netatom[NetWMFullscreen])
 		setfullscreen(c, 1);
-	if (wtype == netatom[NetWMWindowTypeDialog])
-		c->isfloating = 1;
+	if (wtype == netatom[NetWMWindowTypeDialog]) {
+		c->iscentered = 1;
+    c->isfloating = 1;
+  }
 }
 
 void
