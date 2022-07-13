@@ -3,27 +3,27 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
-static const unsigned int snap      = 10;       /* snap pixel */
+static const unsigned int snap      = 13;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const int user_bh            = 6;
-static const char *fonts[]          = { "BlexMono NF:size=13" };
+static const char *fonts[]          = { "BlexMono NF:size=13:style=italic" };
 static const char dmenufont[]       = "BlexMono NF:size=13";
-static const char col_gray1[]       = "#1d2021";
-static const char col_gray2[]       = "#ebdbb2";
-static const char col_gray3[]       = "#ebdbb2";
-static const char col_gray4[]       = "#ebdbb2";
-static const char col_cyan[]        = "#1d2021";
+static const char col_gray1[]       = "#2e3440";
+static const char col_gray2[]       = "#e5e9f0";
+static const char col_gray3[]       = "#e5e9f0";
+static const char col_gray4[]       = "#e5e9f0";
+static const char col_cyan[]        = "#2e3440";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { col_gray3, col_gray1, col_cyan/*col_gray2*/ },
 	[SchemeSel]  = { col_gray1, col_gray4,  col_cyan  },
 };
 
 /* tagging */
-static const char *tags[] = { "I", "II", "III", "IV", "V", /*"6", "7", "8", "9"*/ };
+static const char *tags[] = { "T", "H", "I", "R", "Z", "A" /*"6", "7", "8", "9"*/ };
 
 static const Rule rules[] = {
 	/* xprop(1):
