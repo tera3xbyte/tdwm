@@ -19,7 +19,7 @@ static const char col_cyan[]        = "#2e3440";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_cyan/*col_gray2*/ },
-	[SchemeSel]  = { col_gray1, col_gray4,  col_cyan  },
+	[SchemeSel]  = { col_gray1, col_gray4,  col_gray2  },
 };
 
 /* tagging */
@@ -109,6 +109,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
 	{ MODKEY|ShiftMask,             XK_m,      quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_n,  setgaps,        {.i = 0  } },
   { MODKEY,                       XK_minus,    spawn,        SHCMD("pamixer --allow-boost -d 5 && notifyvol") },
