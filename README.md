@@ -1,10 +1,11 @@
-# :framed_picture: Preview
+
+## :warning: Notice
+ Git checkout to `kanagawa` branch 
+
+## Note
+- remember to recompile and check the `config.h` file.
+
+## :framed_picture: Preview
 ![dwm preview image](./assets/preview.png)
 
-# :warning: Note
-- remeber to recompile and check the `config.h` file.
-- the dmenu is own by bakkeby; `bakkeby/dmenu-flexipatch`.
-- set the dmenu position respectively
-
-  
 
