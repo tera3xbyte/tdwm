@@ -2,28 +2,29 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 13;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar             = 0;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
-static const int sidepad            = 10;       /* horizontal padding of bar */
-static const int user_bh            = 6;
-static const char *fonts[]          = { "BlexMono NF:size=13:style=italic" };
+static const int sidepad            = 460;       /* horizontal padding of bar */
+static const int user_bh            = 14;
+static const char *barlayout        = "slt";
+static const char *fonts[]          = { "Iosevka:size=10:" };
 static const char dmenufont[]       = "BlexMono NF:size=13";
-static const char col_gray1[]       = "#2e3440";
-static const char col_gray2[]       = "#e5e9f0";
-static const char col_gray3[]       = "#e5e9f0";
-static const char col_gray4[]       = "#e5e9f0";
-static const char col_cyan[]        = "#2e3440";
-static const char *colors[][3]      = {
+static const char col_gray1[]       = "#1f1f28";
+static const char col_gray2[]       = "#dcd7ba";
+static const char col_gray3[]       = "#dcd7ba";
+static const char col_gray4[]       = "#dcd7ba";
+static const char col_cyan[]        = "#1f1f28";
+static const char *colors[][4]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_cyan/*col_gray2*/ },
 	[SchemeSel]  = { col_gray1, col_gray4,  col_gray2  },
 };
 
 /* tagging */
-static const char *tags[] = { "T", "H", "I", "R", "Z", "A" /*"6", "7", "8", "9"*/ };
+static const char *tags[] = { "I", "II", "III", "IV", "V", "VI" /*"6", "7", "8", "9"*/ };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -68,13 +69,12 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 // dmenu_r
 // un -X 275 -Y 150 -W 860 -h 40 -l 10 -g 3 -bw 15 -fn "BlexMono NF:style=italic"
 static const char *dmenucmd[] = { "dmenu_run", 
-  "-X", "450", 
-  "-Y", "200",
-  "-W", "500",
+  "-X", "0", 
+  "-Y", "0",
+  "-W", "360",
   "-h", "40",
-  "-l", "7",
-  "-g", "2",
-  "-bw", "15",
+  "-l", "17",
+  "-bw", "25",
   "-fn", "BlexMono NF:style=italic",
   NULL };
 static const char *termcmd[]  = { "xterm", NULL };
